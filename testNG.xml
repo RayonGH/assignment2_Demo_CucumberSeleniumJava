@@ -2,10 +2,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite" parallel="tests" thread-count="2">
 
-    <test verbose="2" preserve-order="true" name="Test Suite 1">
-
+    <test preserve-order="true" name="Login Tests">
         <classes>
             <class name="test.LoginLogOutTest"></class>
+        </classes>
+    </test>
+
+    <test preserve-order="true" name="Inventory Tests">
+        <classes>
             <class name="test.InventoryTest"></class>
         </classes>
     </test>
