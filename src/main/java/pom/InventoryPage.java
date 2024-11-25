@@ -11,24 +11,12 @@ import java.util.List;
 
 
 public class InventoryPage extends BasePage {
+
     private By HEADERCONTAINER = By.cssSelector("[data-test='header-container']");
-    private By HEADERLABEL = By.className("header_label");
-    private By PRODUCTSHEADER = By.cssSelector("[data-test='title']");
     private By SORTCONTAINER = By.cssSelector("[data-test='product-sort-container']");
     private By INVENTORYCONTAINER = By.cssSelector("[data-test='inventory-container']");
     private By ITEMPRICE = By.cssSelector("[data-test='inventory-item-price']");
-    private By ADDTOCART = By.cssSelector("[data-test='add-to-cart-button']");
     private By SHOPPINGCART = By.cssSelector("[data-test='shopping-cart-link']");
-
-    public boolean checkHeaderLabel(String label) throws Exception{
-        WebElement headerElement = waitAndReturnElementIfLocated(HEADERCONTAINER);
-        WebElement headerLabel = headerElement.findElement(HEADERLABEL);
-        return headerLabel.getText().equals(label);
-    }
-
-    public boolean checkProductHeader(String label) throws Exception{
-        return waitAndReturnElementIfLocated(PRODUCTSHEADER).getText().equals(label);
-    }
 
     public InventoryPage clickOnSortIcon(){
         WebElement headerElement = waitAndReturnElementIfLocated(HEADERCONTAINER);

@@ -21,14 +21,6 @@ public class BasePage {
         return  getCurrentUrl().equals(url);
     }
 
-    public void waitForElement(WebDriver driver, WebElement element) {
-        FluentWait wait = new FluentWait(driver);
-        wait.withTimeout(Duration.ofSeconds(30));
-        wait.pollingEvery(Duration.ofMillis(300));
-        wait.ignoring(Exception.class);
-        wait.until(ExpectedConditions.visibilityOf(element));
-    }
-
     public void clickOnElement(WebElement element){
         try {
             FluentWait wait = new FluentWait(getDriver());

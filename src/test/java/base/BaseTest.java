@@ -1,7 +1,5 @@
 package base;
 
-import org.testng.annotations.*;
-import org.testng.asserts.SoftAssert;
 import util.driver.DriverConfig;
 import util.driver.DriverFactory;
 import util.driver.DriverManager;
@@ -15,32 +13,20 @@ public class BaseTest extends BasePage {
         super();
     }
 
-    public String username_standard;
-    public String username_lockedOut;
-    public String username_problemUser;
-    public String username_performanceUser;
-    public String username_errorUser;
-    public String username_visualUser;
-    public String password;
-    public String inventoryUrl;
-    public String checkoutCompleteUrl;
-    protected SoftAssert softAssert;
+    public String username_standard = "standard_user";;
+    public String username_lockedOut = "locked_out_user";
+    public String username_problemUser = "problem_user";
+    public String username_performanceUser = "performance_glitch_user";
+    public String username_errorUser = "error_user";
+    public String username_visualUser = "visual_user";
+    public String password = "secret_sauce";
+    public String inventoryUrl= driverConfig.getInventoryUrlValue();
+    public String checkoutCompleteUrl= driverConfig.checkoutCompleteUrlValue();
 
-    @BeforeMethod(groups = "config")
     public void setUp() throws Exception {
-        username_standard = "standard_user";
-        username_lockedOut = "locked_out_user";
-        username_problemUser = "problem_user";
-        username_performanceUser = "performance_glitch_user";
-        username_errorUser = "error_user";
-        username_visualUser = "visual_user";
-        password = "secret_sauce";
         driverFactory.createDriver().get(driverConfig.getBaseUrlValue());
-        inventoryUrl = driverConfig.getInventoryUrlValue();
-        checkoutCompleteUrl = driverConfig.checkoutCompleteUrlValue();
     }
 
-    @AfterMethod(groups = "config")
     public void tearDown(){
         DriverManager.getDriver().quit();
         DriverManager.removeDriver();
